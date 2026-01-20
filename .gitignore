@@ -17,4 +17,4 @@ dist/
                                                                                                                         
 # Logs                                                                                                                
 *.log                                                                                                                 
-npm-debug.log*
+npm-debug.log
