@@ -1,0 +1,20 @@
+# Dependencies                                                                                                        
+node_modules/                                                                                                         
+                                                                                                                        
+# Build output (if you compile to JS later)                                                                           
+dist/                                                                                                                 
+                                                                                                                        
+# Environment variables (secrets, API keys)                                                                           
+.env                                                                                                                  
+.env.local                                                                                                            
+                                                                                                                        
+# OS files                                                                                                            
+.DS_Store                                                                                                             
+                                                                                                                        
+# Editor settings (optional - some teams do share these)                                                              
+.idea/                                                                                                                
+.vscode/                                                                                                              
+                                                                                                                        
+# Logs                                                                                                                
+*.log                                                                                                                 
+npm-debug.log*
