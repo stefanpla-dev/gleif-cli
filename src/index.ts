@@ -7,3 +7,6 @@ async function main () {
 }
 
 main ();
+
+
+// This should be in two parts: one part that takes the commands and another that is a library that makes calls to the API. This second part can be as little as two files.

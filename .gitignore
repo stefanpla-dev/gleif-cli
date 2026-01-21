@@ -1,20 +1,9 @@
-# Dependencies                                                                                                        
 node_modules/                                                                                                         
-                                                                                                                        
-# Build output (if you compile to JS later)                                                                           
 dist/                                                                                                                 
-                                                                                                                        
-# Environment variables (secrets, API keys)                                                                           
 .env                                                                                                                  
-.env.local                                                                                                            
-                                                                                                                        
-# OS files                                                                                                            
-.DS_Store                                                                                                             
-                                                                                                                        
-# Editor settings (optional - some teams do share these)                                                              
+.env.local                                                                                                      
+.DS_Store                                                                                                                                                                                                                                                         
 .idea/                                                                                                                
-.vscode/                                                                                                              
-                                                                                                                        
-# Logs                                                                                                                
+.vscode/                                                                                                                                                                                                                                                                                                           
 *.log                                                                                                                 
 npm-debug.log
