@@ -8,7 +8,9 @@ async function main() {
     } else {
         console.log(`Searching for LEI records with legal name: ${process.argv[2]}`);
         const records = await searchByName(process.argv[2]!);
-        console.log(records);
+        records.forEach((record, i) => {
+            console.log(`${i + 1}. ${record.legalName} (${record.lei}) - ${record.status}`);
+        })
     }
 
 }
