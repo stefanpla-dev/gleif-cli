@@ -18,7 +18,7 @@ function prompt(question: string): Promise<string> {
 
 async function main() {
     if (process.argv.length < 3) {
-        console.error('Usage: tsx src/index.ts <legal-name>');
+        console.error('Usage: tsx src/index.ts <legal-name>. Please provide a legal name to search for.');
         process.exit(1);
     } else {
         console.log(`Searching for LEI records with legal name: ${process.argv[2]}`);
@@ -40,9 +40,9 @@ async function main() {
         }
         const detailTable = new Table();
         detailTable.push(
-            { 'Legal Name': records[index].legalName },
-            { 'LEI': records[index].lei },
-            { 'Status': records[index].status }
+            { 'Legal Name': records[index]!.legalName },
+            { 'LEI': records[index]!.lei },
+            { 'Status': records[index]!.status }
         );
         console.log(detailTable.toString()
         )
