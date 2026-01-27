@@ -1,10 +1,10 @@
 // console.log("hello world");
+import { searchByName } from "./gleif.js";
 
-async function main () {
-    const response = await fetch("https://api.gleif.org/api/v1/lei-records?filter[entity.legalName]=Apple ")
-    const data = await response.json();
-    console.log(data);
+async function main() {
+    const records = await searchByName('Apple');
+    console.log(records);
 }
 
-main ();
+main();
 
