@@ -1,3 +1,4 @@
+import { Command } from 'commander';
 import { searchByName } from './gleif.js';
 import * as readline from 'readline';
 import Table from 'cli-table3';
@@ -16,13 +17,15 @@ function prompt(question: string): Promise<string> {
     });
 }
 
-async function main() {
-    if (process.argv.length < 3) {
-        console.error('Usage: tsx src/index.ts <legal-name>. Please provide a legal name to search for.');
-        process.exit(1);
-    } else {
-        console.log(`Searching for LEI records with legal name: ${process.argv[2]}`);
-        const records = await searchByName(process.argv[2]!);
+const program = new Command();
+
+program
+    .name('gleif-cli')
+    .description('Search the GLEIF API for LEI records')
+    .argument('<legal-name>', 'Legal name to search for')
+    .action(async (legalName: string) => {
+        console.log(`Searching for LEI records with legal name: ${legalName}`);
+        const records = await searchByName(legalName);
         const table = new Table({
             head: ['#', 'Legal Name', 'LEI', 'Status'],
         });
@@ -44,10 +47,8 @@ async function main() {
             { 'LEI': records[index]!.lei },
             { 'Status': records[index]!.status }
         );
-        console.log(detailTable.toString()
-        )
-    }
-}
+        console.log(detailTable.toString());
+    });
 
-main();
+program.parse();
 
