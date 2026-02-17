@@ -26,6 +26,10 @@ program
     .action(async (legalName: string) => {
         console.log(`Searching for LEI records with legal name: ${legalName}`);
         const records = await searchByName(legalName);
+        if (records.length === 0) {
+            console.log(`No records found for entity ${legalName}. Please check the spelling and try again.`);
+            process.exit(0);
+        }
         const table = new Table({
             head: ['#', 'Legal Name', 'LEI', 'Status'],
         });
