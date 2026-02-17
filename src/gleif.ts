@@ -21,8 +21,11 @@ export interface LeiRecord {
 }
 
 export async function searchByName(name: string): Promise<LeiRecord[]> {
-    const url = `https://api.gleif.org/api/v1/lei-records?filter[entity.legalName]=${name}`;
+    const url = `https://api.gleif.org/api/v1/lei-records?filter[entity.legalName]=${encodeURIComponent(name)}`;
     const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`GLEIF API request failed with status ${response.status}`);
+    }
     const json = GleifSearchResponseSchema.parse(await response.json());
 
     return json.data.map((item) => ({
