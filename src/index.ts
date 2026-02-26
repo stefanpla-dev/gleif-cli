@@ -45,11 +45,21 @@ program
             console.error('Invalid selection.');
             process.exit(1);
         }
+        const selected = records[index]!;
+        const addr = selected.legalAddress;
+        const cityLine = [addr.city, addr.region, addr.postalCode].filter(Boolean).join(', ');
+        const formattedAddress = [
+            ...addr.addressLines,
+            cityLine,
+            addr.country,
+        ].filter(Boolean).join('\n');
+
         const detailTable = new Table();
         detailTable.push(
-            { 'Legal Name': records[index]!.legalName },
-            { 'LEI': records[index]!.lei },
-            { 'Status': records[index]!.status }
+            { 'Legal Name': selected.legalName },
+            { 'LEI': selected.lei },
+            { 'Status': selected.status },
+            { 'Address': formattedAddress }
         );
         console.log(detailTable.toString());
     });
